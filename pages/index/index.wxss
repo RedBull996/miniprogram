@@ -10,7 +10,7 @@
 }
 .section_content{
   flex-wrap: wrap;
-  background-color: blue;
+  background-color: red;
 }
 .section_footer{
   clear: both;
