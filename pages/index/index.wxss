@@ -1,21 +1,47 @@
 /**index.wxss**/
-.userinfo {
+
+.section_header{
+  clear: both;
+  display: flex;
+  padding-left: 15px;
+  padding-right: 15px;
+  align-items: center;
+  height: 45px;
+}
+.section_content{
+  flex-wrap: wrap;
+  background-color: blue;
+}
+.section_footer{
+  clear: both;
+  height: 15px;
+  background-color: #f2f2f2;
+}
+.section_title{
+  font-size: 15;
+  color: #333333;
+}
+.section_item{
+  height:100px;
+  width: 25%;
+  float: left;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.section_item_title{
+  margin-top: 10px;
+  font-size: 13;
+  color: #333333;
 }
-
-.userinfo-nickname {
-  color: #aaa;
+.line {
+  display: flex;
+  height: 1px;
+  width: 100%;
+  background-color: #e2e2e2;
 }
-
-.usermotto {
-  margin-top: 200px;
+.section_item_img{
+  width: 30px;
+  height:30px;
 }

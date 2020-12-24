@@ -5,57 +5,138 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    dataSource: [{
+      "parentId": 35,
+      "menuName": "直客业务",
+      "index": 13,
+      "path": null,
+      "iconUrl": null,
+      "alterNumberUrl": null,
+      "status": 1,
+      "type": 3,
+      "title": "直客业务",
+      "titleIsShow": true,
+      "key": "140",
+      "subMenuList": [{
+        "parentId": 140,
+        "menuName": "人行征信",
+        "index": 0,
+        "path": "btllc://www.btjf.com/bank_credit/credit_index",
+        "iconUrl": "http://192.168.100.83/PUBLIC/STAFF_APP_INDEX_ICON/home_credit_management.png",
+        "alterNumberUrl": null,
+        "status": 1,
+        "type": 3,
+        "title": "人行征信1",
+        "titleIsShow": false,
+        "key": "141",
+        "subMenuList": [],
+        "certificateLimit": false
+      }, {
+        "parentId": 140,
+        "menuName": "分期管理",
+        "index": 1,
+        "path": "btllc://www.btjf.com/loanManage/index",
+        "iconUrl": "http://192.168.100.83/PUBLIC/STAFF_APP_INDEX_ICON/home_consumer_order.png",
+        "alterNumberUrl": null,
+        "status": 1,
+        "type": 3,
+        "title": "消费贷管理",
+        "titleIsShow": false,
+        "key": "142",
+        "subMenuList": [],
+        "certificateLimit": false
+      }, {
+        "parentId": 140,
+        "menuName": "归档管理",
+        "index": 2,
+        "path": "/pages/orders/delete/index",
+        "iconUrl": null,
+        "alterNumberUrl": null,
+        "status": 1,
+        "type": 2,
+        "title": "归档管理",
+        "titleIsShow": true,
+        "key": "156",
+        "subMenuList": [],
+        "certificateLimit": false
+      }, {
+        "parentId": 140,
+        "menuName": "订单管理",
+        "index": 3,
+        "path": "btllc://www.btjf.com/zyorders/index",
+        "iconUrl": null,
+        "alterNumberUrl": null,
+        "status": 1,
+        "type": 2,
+        "title": null,
+        "titleIsShow": true,
+        "key": "155",
+        "subMenuList": [],
+        "certificateLimit": false
+      }, {
+        "parentId": 140,
+        "menuName": "ceshi ",
+        "index": 3,
+        "path": "btllc://www.btjf.com/zyorders/index",
+        "iconUrl": null,
+        "alterNumberUrl": null,
+        "status": 1,
+        "type": 2,
+        "title": null,
+        "titleIsShow": true,
+        "key": "155",
+        "subMenuList": [],
+        "certificateLimit": false
+      }],
+      "certificateLimit": false
+    }, {
+      "parentId": 35,
+      "menuName": "经销商业务",
+      "index": 14,
+      "path": null,
+      "iconUrl": null,
+      "alterNumberUrl": null,
+      "status": 1,
+      "type": 3,
+      "title": "经销商业务",
+      "titleIsShow": true,
+      "key": "152",
+      "subMenuList": [{
+        "parentId": 152,
+        "menuName": "线索管理",
+        "index": 0,
+        "path": "btllc://www.btjf.com/dealer-business/cluesManage/list",
+        "iconUrl": null,
+        "alterNumberUrl": null,
+        "status": 1,
+        "type": 2,
+        "title": "线索管理",
+        "titleIsShow": true,
+        "key": "153",
+        "subMenuList": [],
+        "certificateLimit": false
+      }, {
+        "parentId": 152,
+        "menuName": "订单管理",
+        "index": 1,
+        "path": "/pages/orders/index",
+        "iconUrl": null,
+        "alterNumberUrl": null,
+        "status": 1,
+        "type": 2,
+        "title": "订单管理",
+        "titleIsShow": true,
+        "key": "154",
+        "subMenuList": [],
+        "certificateLimit": false
+      }],
+      "certificateLimit": false
+    }],
   },
-  //事件处理函数
-  bindViewTap: function () {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse) {
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-
-          // app.globalData.userInfo = res.userInfo
-          // this.setData({
-          //   userInfo: res.userInfo,
-          //   hasUserInfo: true
-          // })
-          let config = {
-            url: '',
-            method: FetchMethod.get
-          }
-          network.fetch(config);
-        }
-      })
-    }
-  },
-  getUserInfo: function (e) {
+  clickMennu: function (e) {
     console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+    wx.navigateTo({
+      url: e.currentTarget.dataset.item.path,
     })
   }
 })

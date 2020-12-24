@@ -1,0 +1,23 @@
+<view class="container">
+  <view class="loginTop">
+    <image class="loginTopImg" src="/images/signin-bg@3x.png" mode="aspectFill" />
+    <text class="tip">{{greetings}}</text>
+  </view>
+  <view class="inputBg">
+    <view class="input_as">
+      <view class="inputItem">
+        <image class="inputItem_image" src="/images/Username@3x.png" />
+        <input class="inputItem_input" placeholder="请输入用户名或手机号码" bindinput="bindUserNameInput" />
+      </view>
+      <view class="line" />
+    </view>
+    <view class="input_as">
+      <view class="inputItem">
+        <image class="inputItem_image" src="/images/loginPassword@3x.png" />
+        <input class="inputItem_input" placeholder="请输入登录密码" password="true" bindinput="bindPwdInput" />
+      </view>
+      <view class="line" />
+    </view>
+    <button bindtap="handleLogin" loading="{{loading}}" bindtap="handleLogin" type="warn" disabled="{{disabled}}" class="login_btn">登录</button>
+  </view>
+</view>

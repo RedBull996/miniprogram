@@ -1,0 +1,10 @@
+<!--pages/message/index.wxml-->
+<page-meta>
+    <view class="menubar">
+        <text class="menubar_txt" style=" color:#333333;font-size:15px;">全部</text>
+        <text class="menubar_txt">我的</text>
+    </view>
+    <view wx:for="{{datasource}}" wx:key="id">
+        <text>123123123</text>
+    </view>
+</page-meta>

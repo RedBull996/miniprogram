@@ -1,0 +1,34 @@
+<page-meta class="container">
+  <navigation-bar title="订单管理" />
+  <view class="section_container {{item.isTouchMove ? 'touch-move-active' : ''}}" wx:for="{{list}}">
+    <view class="section_item" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove"
+      bindtouchend="touchE">
+      <view style="{{item.txtStyle}}" class='item'>
+        <view class="item_header">
+          <text class="item_header_title">{{item.FPersonName}}</text>
+          <text class="item_call" catchtap="call" data-phone="{{item.FPersonPhone}}">{{item.FPersonPhone}}</text>
+        </view>
+        <view class="line" />
+        <view class="section_content">
+          <view class="item_single">
+            <text class="section_item_title">业务模式:</text>
+            <text class="section_item_title">{{item.MortgageTypeName}}</text>
+          </view>
+          <view class="item_single">
+            <text class="section_item_title">车辆属性:</text>
+            <text class="section_item_title">{{item.FCarTypeName}}</text>
+          </view>
+          <view class="item_single">
+            <text class="section_item_title">经销商:</text>
+            <text class="section_item_title">{{item.FDealerName}}</text>
+          </view>
+          <view class="item_single">
+            <text class="section_item_title">业务经理:</text>
+            <text class="section_item_title">{{item.FEmpName}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="del" data-id="{{item.id}}" data-item="{{item}}" data-index="{{index}}" catchtap="deleteOrder">删除</view>
+  </view>
+</page-meta>

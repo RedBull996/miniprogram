@@ -1,18 +1,20 @@
-const { default: network } = require("./api/network")
-
 //app.js
 App({
   onLaunch: function () {
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
     // 登录
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        network.fetch()
+        var token = wx.getStorageSync('token');
+        if (token&&token.length>0) {
+          wx.reLaunch({
+            url: '/pages/index/index',
+          })
+        } else {
+          wx.reLaunch({
+            url: '/pages/login/index',
+          })
+        }
       }
     })
     // 获取用户信息

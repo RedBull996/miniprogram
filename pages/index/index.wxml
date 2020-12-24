@@ -1,13 +1,14 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <!-- <block wx:else> -->
-      <image bindtap="" style="color={'red'}" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    <!-- </block> -->
+<page-meta>
+  <navigation-bar title="主页" />
+  <view wx:for="{{dataSource}}" wx:key="key">
+    <view class="section_header">
+      <text class="section_title">{{item.title}}</text>
+    </view>
+    <view class="line" />
+    <view wx:for="{{item.subMenuList}}" wx:key="key" class="section_item" bindtap="clickMennu" data-item="{{item}}">
+      <image class="section_item_img" src="/images/tab-function-s@2x.png" />
+      <text class="section_item_title">{{item.menuName}}</text>
+    </view>
+    <view class="section_footer"></view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
-</view>
+</page-meta>

@@ -1,0 +1,12 @@
+/* pages/message/index.wxss */
+.menubar{
+  height: 45px;
+  justify-content: space-evenly;
+  display: flex;
+}
+.menubar_txt{
+  color:#e83c36;
+  font-size: 15px;
+  text-align: center;
+  align-self: center;
+}
