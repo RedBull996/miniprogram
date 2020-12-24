@@ -1,10 +1,20 @@
 <!--pages/message/index.wxml-->
-<page-meta>
+<page-meta class="container">
     <view class="menubar">
-        <text class="menubar_txt" style=" color:#333333;font-size:15px;">全部</text>
-        <text class="menubar_txt">我的</text>
+        <text class="menubar_txt {{index == 0?'select_tab':''}}" data-index="0" bindtap="clickTab">全部</text>
+        <text class="menubar_txt  {{index == 1?'select_tab':''}}" data-index="1" bindtap="clickTab">我的</text>
     </view>
-    <view wx:for="{{datasource}}" wx:key="id">
-        <text>123123123</text>
-    </view>
+    <scroll-view scroll-with-animation="true" scroll-into-view="{{toView}}" style="white-space: nowrap;display:flex"
+        scroll-x="false" paging-enabled="true" enhanced="true">
+        <view id="item0" style="display:inline-block;width:375px;height:200px;">
+            <view wx:for="{{datasource}}" wx:key="id">
+                <text>123123123</text>
+            </view>
+        </view>
+        <view id="item1" style="display:inline-block;width:375px;height:200px;">
+            <view wx:for="{{datasource}}" wx:key="id">
+                <text>22222222</text>
+            </view>
+        </view>
+    </scroll-view>
 </page-meta>

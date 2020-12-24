@@ -1,12 +1,26 @@
 /* pages/message/index.wxss */
 .menubar{
   height: 45px;
-  justify-content: space-evenly;
+  justify-content: space-around;
   display: flex;
+  top: 0;
+  background: white;
+  position: sticky;
+  z-index:2;
 }
 .menubar_txt{
-  color:#e83c36;
+  color:#333333;
+  flex: 1;
+  margin-left: 25px;
+  margin-right: 25px;
   font-size: 15px;
+  vertical-align: middle;
   text-align: center;
   align-self: center;
+  line-height: 45px;
+}
+.select_tab{
+  border-bottom:2px solid red;
+  color: #e83c36;
+  font-weight: bold;
 }
